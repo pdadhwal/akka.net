@@ -1,0 +1,106 @@
+- Theory
+
+- What is the actor model
+Concurrancy method where the primitive is the actor
+ Thread, Processes, Futures, CSP etc are other concurrency models
+ 
+Actor Model
+- Akka.net is the .net implementation of the akka model.
+- Implementations exist in various languages
+  - Java
+  - Erlang / Scala
+  - Python
+  - C++ (CAF)
+
+Libraries:
+ akka.net
+ akka.remote
+ akka testkit
+ akka.cluster
+ 
+ configuration
+ looking at config file
+ looking at template config file
+  
+Actors
+Properties of actor
+- Persistant 
+	Actors live on. Threads usually die after what they do.
+		Actors typically do not (unless they are programmed to self terminated)
+	Encapsulate internal state (Like Thread local State)
+	Are executed asynchronous. (Tell)
+
+Actors can do:
+- Create new actors (like a thread can create more thread)
+- Receive messages and send responses
+  - Make local decisons (alter local state)
+  - Send responses (0, 1, or more messages) 
+  - Side effect ctions (alter slf state, update dv)
+- Process one message at a time
+
+Actors communicate by via messages
+- Best effort delivery
+	- TCP v/s UDP
+- At most once delivery
+- Can take a long time to be delivered and processed
+- No message ordering guarantees
+
+Addressing:
+- local references
+- remote references
+- location transparency - one way to communicate with actors
+	- An address Identifies an actor 
+	- Can also represent a proxy to an actor
+	- Contains location and transport information
+	- Location transparency (uses same semantics to communicate with actors). Once actor msay have multiple addresses
+
+Actor references
+
+basic operations:
+Actor creation
+Actor lookup
+Actor sending a message
+Sending a responses
+State machines
+
+
+
+Handling failure
+- Supervision
+ Actor is monitored by its supervisor
+ Supervision trees
+
+
+ 
+ 
+Use cases:
+- Batch processing
+	- Breakup work
+- Processing pipelines
+- Streaming data
+- Multi user concurrency
+	
+Anti-patters
+
+
+Draw backs
+- Too many actors difficult to debug
+- metrics are hard to get
+- Testing is painbful
+- Debugging is difficult (state + concurrency)
+
+
+What to get more information:
+Dont use actors for concurrency?
+Why has actor model not succeeded
+
+Akka in production
+Reactive Messaging Patters
+Programmming elixir
+
+
+
+
+
+
+
